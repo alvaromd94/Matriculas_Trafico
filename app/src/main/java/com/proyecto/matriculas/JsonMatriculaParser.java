@@ -42,6 +42,11 @@ public class JsonMatriculaParser {
         String Fecha_Infraccion= null;
         String N_Matricula= null;
         Integer IDPropietariosFK= null;
+        Integer IDPropietarios= null;
+        String DNI= null;
+        String Nombre_Apellidos= null;
+        String Direccion= null;
+        Integer Telefono= null;
 
 
         reader.beginObject();
@@ -63,12 +68,27 @@ public class JsonMatriculaParser {
                 case "IDPropietariosFK":
                     IDPropietariosFK = reader.nextInt();
                     break;
+                case "IDPropietarios":
+                    IDPropietarios = reader.nextInt();
+                    break;
+                case "DNI":
+                    DNI = reader.nextString();
+                    break;
+                case "Nombre_Apellidos":
+                    Nombre_Apellidos = reader.nextString();
+                    break;
+                case "Direccion":
+                    Direccion = reader.nextString();
+                    break;
+                case "Telefono":
+                    Telefono = reader.nextInt();
+                    break;
                 default:
                     reader.skipValue();
                     break;
             }
         }
         reader.endObject();
-        return new Matricula(N_Registro, Infraccion, Fecha_Infraccion, N_Matricula,IDPropietariosFK );
+        return new Matricula(N_Registro, Infraccion, Fecha_Infraccion, N_Matricula,IDPropietariosFK, IDPropietarios, DNI, Nombre_Apellidos, Direccion, Telefono );
     }
 }

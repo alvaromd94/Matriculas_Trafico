@@ -79,7 +79,7 @@ public class ConsultaServidor extends AppCompatActivity {
 
                 if(statusCode!=200) {
                     matriculas = new ArrayList<>();
-                    matriculas.add(new Matricula(null,null,null, null, null));
+                    matriculas.add(new Matricula(null,null,null, null, null, null, null, null, null, null));
 
                 } else {
 

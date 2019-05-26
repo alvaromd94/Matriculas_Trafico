@@ -17,13 +17,26 @@ public class Matricula {
     private String N_Matricula;
     private Integer IDPropietariosFK;
 
+    private Integer IDPropietarios;
+    private String DNI;
+    private String Nombre_Apellidos;
+    private String Direccion;
+    private Integer Telefono;
 
-    public Matricula(Integer N_Registro,  String Infraccion, String Fecha_Infraccion, String N_Matricula, Integer IDPropietariosFK) {
+
+    public Matricula(Integer N_Registro,  String Infraccion, String Fecha_Infraccion, String N_Matricula, Integer IDPropietariosFK, Integer IDPropietarios, String DNI, String Nombre_Apellidos, String Direccion, Integer Telefono) {
         this.N_Registro = N_Registro;
         this.Infraccion = Infraccion;
         this.Fecha_Infraccion = Fecha_Infraccion;
         this.N_Matricula = N_Matricula;
         this.IDPropietariosFK = IDPropietariosFK;
+
+        this.IDPropietarios = IDPropietarios;
+        this.DNI = DNI;
+        this.Nombre_Apellidos = Nombre_Apellidos;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+
     }
 
     public Integer getN_Registro() {
@@ -61,5 +74,36 @@ public class Matricula {
     }
 
     public void setIDPropietariosFK(Integer IDPropietariosFK) { this.IDPropietariosFK = IDPropietariosFK; }
+
+
+    public Integer getIDPropietarios() {
+        return IDPropietarios;
+    }
+
+    public void setIDPropietarios(Integer IDPropietarios) { this.IDPropietarios = IDPropietarios; }
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public void setDNI(String DNI) { this.DNI = DNI; }
+
+    public String getNombre_Apellidos() {
+        return Nombre_Apellidos;
+    }
+
+    public void setNombre_Apellidos(String Nombre_Apellidos) { this.Nombre_Apellidos = Nombre_Apellidos; }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String Direccion) { this.Direccion = Direccion; }
+
+    public Integer getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(Integer Telefono) { this.Telefono = Telefono; }
 
 }
