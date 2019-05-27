@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConsultaActivity">
+    tools:context=".ConsultaServidor">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,6 +15,7 @@
             android:id="@+id/txt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="Matrícula: "
             android:textSize="24sp" />
 
@@ -22,6 +23,7 @@
             android:id="@+id/txt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="Fecha Infracción: "
             android:textSize="24sp" />
 
@@ -29,7 +31,40 @@
             android:id="@+id/txt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="Infracción: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Propietario:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="DNI:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Dirección:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Teléfono:"
             android:textSize="24sp" />
 
     </LinearLayout>
@@ -45,6 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
+            android:layout_margin="10dp"
             android:background="?android:selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
@@ -56,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
+            android:layout_margin="10dp"
             android:background="?android:selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
@@ -67,9 +104,38 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
+            android:layout_margin="10dp"
             android:background="?android:selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/propietario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/dni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:textSize="24sp" />
 
     </LinearLayout>

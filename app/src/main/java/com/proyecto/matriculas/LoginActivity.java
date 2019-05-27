@@ -63,22 +63,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-  //  public void cickInicio(View view) {
-        //  if (editTextUsuario.length() > 0) {
-            //     Integer id = Integer.parseInt(editTextUsuario.getText().toString());
-            //    new ConsultaActivity.PruebaJson().execute("obtenermatriculas.php?id=" + id);
-            //  } else {
-            //   new ConsultaActivity.PruebaJson().execute("get-list-products.php");
-            //   }
-//
-  //      new PruebaJson().execute("login.php?Usuario=" + editTextUsuario.getText().toString() + "&Contrasena=" + editTextPassword.getText().toString());
-        //startActivity(new Intent(getApplicationContext(), MenuPrincipalActivity.class));
-  //  }
 
    // public void cickLimpiar(View view) {
    //     editTextUsuario.setText("");
    //     editTextPassword.setText("");
-   //     //startActivity(new Intent(getApplicationContext(), ConsultaActivity.class));
+
    // }
     public void meterMatricula(View view)
     {

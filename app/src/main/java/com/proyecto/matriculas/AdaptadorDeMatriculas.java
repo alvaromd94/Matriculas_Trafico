@@ -51,24 +51,24 @@ public class AdaptadorDeMatriculas extends ArrayAdapter {
         TextView infraccion = (TextView)v.findViewById(R.id.infraccion);
         TextView fechaInfraccion = (TextView)v.findViewById(R.id.fechaInfraccion);
         TextView nMatricula = (TextView)v.findViewById(R.id.nMatricula);
+        TextView propietario = (TextView)v.findViewById(R.id.propietario);
+        TextView dni = (TextView)v.findViewById(R.id.dni);
+        TextView direccion = (TextView)v.findViewById(R.id.direccion);
+        TextView telefono = (TextView)v.findViewById(R.id.telefono);
+
 
 
         //Obteniendo instancia de la Tarea en la posición actual
         Matricula item = (Matricula) getItem(position);
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getN_Registro());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getInfraccion());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getFecha_Infraccion());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getN_Matricula());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getIDPropietariosFK());
 
         infraccion.setText(item.getInfraccion());
         fechaInfraccion.setText(item.getFecha_Infraccion());
         nMatricula.setText(item.getN_Matricula());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getN_Registro());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getInfraccion());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getFecha_Infraccion());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getN_Matricula());
-        Log.i("PruebaJson", "PRUEBA --- " +  item.getIDPropietariosFK());
+        propietario.setText(item.getNombre_Apellidos());
+        dni.setText(item.getDNI());
+        direccion.setText(item.getDireccion());
+        telefono.setText(item.getTelefono().toString());
+
 
 
 

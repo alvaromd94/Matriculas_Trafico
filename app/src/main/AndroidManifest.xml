@@ -23,11 +23,8 @@
             android:name=".CamaraActivity"
             android:label="@string/camara" />
         <activity
-            android:name=".ConsultaActivity"
-            android:label="@string/consulta" />
-        <activity
             android:name=".ConsultaServidor"
-            android:label="ConsultaServidor" />
+            android:label="Consulta" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

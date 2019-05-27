@@ -42,6 +42,7 @@ public class MatriculasActivity extends AppCompatActivity {
 
 
 
+
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,10 +82,7 @@ public class MatriculasActivity extends AppCompatActivity {
     }
 
     public void clicConsulta(View view) {
-        startActivity(new Intent(getApplicationContext(), ConsultaActivity.class));
+        startActivity(new Intent(getApplicationContext(), ConsultaServidor.class));
     }
-
-
-
 
 }

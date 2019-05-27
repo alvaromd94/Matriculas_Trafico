@@ -1,11 +1,16 @@
 package com.proyecto.matriculas;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -50,7 +55,7 @@ public class ConsultaServidor extends AppCompatActivity {
             if (networkInfo != null && networkInfo.isConnected()) {
                 new JsonTask().
                         execute(
-                                new URL("http://proyectomatriculas.com/proyecto/busqueda.php?id=3"));
+                                new URL("http://proyectomatriculas.com/proyecto/busqueda.php?id=" + "'" + App.matricula + "'"));
             } else {
                 Toast.makeText(this, "Error de conexión", Toast.LENGTH_LONG).show();
             }
@@ -60,7 +65,21 @@ public class ConsultaServidor extends AppCompatActivity {
         }
 
     }
-
+    @SuppressLint("RestrictedApi")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_volver, menu);
+        MenuBuilder m = (MenuBuilder) menu;
+        m.setOptionalIconsVisible(true);
+        return true;
+    }
+    @SuppressLint("NewApi")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        startActivity(new Intent(getApplicationContext(), MatriculasActivity.class));
+        return false;
+    }
     public class JsonTask extends AsyncTask<URL, Void, List<Matricula>> {
 
         @Override
