@@ -1,5 +1,6 @@
 package com.proyecto.matriculas;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextPassword;
     Button btnInicio;
     Intent menuPrincipal;
-   // String usuario = editTextUsuario.getText().toString();
+
+    // String usuario = editTextUsuario.getText().toString();
     //String contrasena = editTextPassword.getText().toString();
 
     @Override
@@ -53,22 +55,44 @@ public class LoginActivity extends AppCompatActivity {
 
         btnInicio = findViewById(R.id.btnInicio);
 
-    btnInicio.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            new PruebaJson().execute("login.php?Usuario=" + "'" + editTextUsuario.getText().toString() + "'" + "&Contrasena=" +  "'" + editTextPassword.getText().toString() + "'");
 
-        }
-    });
+
+        btnInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new PruebaJson().execute("login.php?Usuario=" + "'" + editTextUsuario.getText().toString() + "'" + "&Contrasena=" +  "'" + editTextPassword.getText().toString() + "'");
+
+
+
+
+
+            }
+        });
+
+    }
+    public void onLoginSuccess() {
+        btnInicio.setEnabled(true);
+        finish();
     }
 
 
+    //  public void cickInicio(View view) {
+    //  if (editTextUsuario.length() > 0) {
+    //     Integer id = Integer.parseInt(editTextUsuario.getText().toString());
+    //    new ConsultaActivity.PruebaJson().execute("obtenermatriculas.php?id=" + id);
+    //  } else {
+    //   new ConsultaActivity.PruebaJson().execute("get-list-products.php");
+    //   }
+//
+    //      new PruebaJson().execute("login.php?Usuario=" + editTextUsuario.getText().toString() + "&Contrasena=" + editTextPassword.getText().toString());
+    //startActivity(new Intent(getApplicationContext(), MenuPrincipalActivity.class));
+    //  }
 
-   // public void cickLimpiar(View view) {
-   //     editTextUsuario.setText("");
-   //     editTextPassword.setText("");
-
-   // }
+    // public void cickLimpiar(View view) {
+    //     editTextUsuario.setText("");
+    //     editTextPassword.setText("");
+    //     //startActivity(new Intent(getApplicationContext(), ConsultaActivity.class));
+    // }
     public void meterMatricula(View view)
     {
         DB db= new DB(getApplicationContext(),null,null,1);
@@ -101,6 +125,11 @@ public class LoginActivity extends AppCompatActivity {
             }
             return true;
         }
+        public void onLoginFailed() {
+            Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+
+            btnInicio.setEnabled(true);
+        }
 
         protected void onPostExecute(Boolean inicioCorrecto) {
             try {
@@ -117,21 +146,63 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     if(!lista.isEmpty())
                     {
-                        startActivity(menuPrincipal);
-                        finish();
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.inicioOk),  Toast.LENGTH_LONG).show();
+
+                        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,R.style.AppTheme_Dark_Dialog);
+                        progressDialog.setIndeterminate(true);
+                        progressDialog.setMessage("Comprobando...");
+                        progressDialog.show();
+
+                        String email = editTextUsuario.getText().toString();
+                        String password = editTextPassword.getText().toString();
+
+                        // TODO: Implement your own authentication logic here.
+
+                        new android.os.Handler().postDelayed(
+                                new Runnable() {
+                                    public void run() {
+                                        startActivity(menuPrincipal);
+                                        finish();
+                                        // On complete call either onLoginSuccess or onLoginFailed
+                                        onLoginSuccess();
+                                        // onLoginFailed();
+                                        progressDialog.dismiss();
+                                    }
+                                }, 3000);
                         //System.out.println("Ha entrado");
                         //Log.i("datos", "Se escribe:" + usuarios.get(0).getIDUsuario());
                     }
                     else{
+                        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,R.style.AppTheme_Dark_Dialog);
+                        progressDialog.setIndeterminate(true);
+                        progressDialog.setMessage("Comprobando...");
+                        progressDialog.show();
 
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.inicioNoOk),  Toast.LENGTH_LONG).show();
+                        String email = editTextUsuario.getText().toString();
+                        String password = editTextPassword.getText().toString();
+
+                        // TODO: Implement your own authentication logic here.
+
+                        new android.os.Handler().postDelayed(
+                                new Runnable() {
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.inicioNoOk),  Toast.LENGTH_LONG).show();
+
+                                        // On complete call either onLoginSuccess or onLoginFailed
+                                        //onLoginSuccess();
+                                        onLoginFailed();
+                                        progressDialog.dismiss();
+                                    }
+                                }, 3000);
+
                     }
                 }
             } catch (JSONException e) {
                 System.out.println("FALLO: " + e.getMessage());
             }
         }
+
+
+
     }
 }
 
